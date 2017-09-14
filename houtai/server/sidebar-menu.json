@@ -1,0 +1,16 @@
+[
+
+  { "text": "Login",
+    "sref": "page.login",
+    "icon": "icon-people",
+    "translate": "登陆"
+  },
+
+  {
+    "text": "permission_group",
+    "sref": "app.permission_group",
+    "icon": "icon-people",
+    "translate": "权限组"
+  }
+
+]
