@@ -1,0 +1,25 @@
+.block-center.mt-xl.wd-xl(ng-controller="PermissionGroupCtrl as login")
+  // START panel
+  .panel.panel-primary.panel-flat
+    .panel-heading.text-center
+      a(href="#")
+        img.block-center.img-rounded(src='app/img/logo.png', alt='Image')
+    .panel-body
+      form.form-validate(role='form',  name='login.loginForm', novalidate='').mb-lg
+        .form-group.has-feedback
+          input#exampleInputEmail1.form-control(type='text', name="account_user" placeholder='用户名', autocomplete="off", ng-model="login.loginForm.account.user", required='required' ng-change="login.change()")
+          span.text-danger(ng-show="login.loginForm.account_user.$dirty && login.loginForm.account_user.$error.required") 这是必填项
+        .form-group.has-feedback
+          input#exampleInputPassword1.form-control(type='password', name="account_password" placeholder='密码', ng-model="login.loginForm.account.password", required='required' ng-change="login.change()")
+          span.text-danger(ng-show="login.loginForm.account_password.$dirty && login.loginForm.account_password.$error.required") 这是必填项
+          span.center(ng-show="login.isshow") {{ login.authMsg }}
+        button.btn.btn-block.btn-primary.mt-lg(type='submit',ng-click='login.login1(login.loginForm.account)') 确定
+
+  // END panel
+  .p-lg.text-center
+    span &copy; 
+    span(ng-bind="app.year") 
+    span  - 
+    span(ng-bind="app.name")
+    br
+    span(ng-bind="app.description")

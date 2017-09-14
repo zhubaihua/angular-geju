@@ -1,0 +1,10 @@
+<h3>新建部门</h3>
+<div class="container-fluid" ng-controller="PermissionGroupCtrl as createForm">
+   <div class="return" ng-click="createForm.return()">
+      << 返回</div>
+         <form class="form-validate mb-lg" role="form" name="createform" novalidate=""></form>
+         <div class="form-group has-feedback">
+            <input class="form-control" type="text" name="name" placeholder="部门名称" ng-model="createForm.createform.cet.name" required="required" />
+         </div>
+         <button class="btn btn-block btn-primary mt-lg" type="submit" ng-click="createForm.crtbm(createForm.createform.cet)">确定</button>
+   </div>

@@ -1,0 +1,35 @@
+<h3>部门人员列表</h3>
+<div class="panel panel-default" ng-controller="PermissionCtrl as table">
+   <div class="panel-heading"></div>
+   <div class="return" ng-click="table.return()">
+      << 返回</div>
+         <div class="panel-body">
+            <div class="container-fluid">
+               <h4 class="cen">{{ table.bmname }}</h4>
+               <div class="lf30">
+                  <div class="lf50">
+                     <div class="center">部门名称</div>
+                     <h5 class="uli" ng-repeat="item in table.listbm" ng-click="table.checkOnebm(item.id)">{{ item.name }}</h5>
+                  </div>
+                  <div class="lf50">
+                     <div class="center">人员名称</div>
+                     <h5 class="uli" ng-repeat="item in table.listry" ng-click="table.checkOnery(item.userid,item.name)">{{ item.name }}</h5>
+                  </div>
+               </div>
+               <table class="table table-bordered table-hover bg-white rt70">
+                  <tr style="font-weight: bold;">
+                     <td style="width:50%;">成员姓名</td>
+                     <td style="width:50%;">操作</td>
+                  </tr>
+                  <tr ng-repeat="item in table.rybm">
+                     <td>
+                        <span>{{ item.name }}</span>
+                     </td>
+                     <td style="white-space: nowrap;">
+                        <button class="mb-sm btn btn-success" type="button" ng-click="table.delstu(item.id)">删除成员</button>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+   </div>

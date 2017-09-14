@@ -1,0 +1,95 @@
+h3 部门权限管理
+.panel.panel-default(ng-controller="PermissionCtrl as table")
+  .panel-heading
+  .return( ng-click="table.return()") << 返回
+  .panel-body
+    .container-fluid
+      h4.cen {{ table.bmname }}
+      .divv
+        .lf50
+          .center 权限列表
+          h5.listb(ng-repeat='item in table.perList', ng-click="table.addper(item.id)")
+              span.left.paleft {{ item.name }}
+              button.btn.btn-success.right(type='button',ng-click='table.delper(item.id)') 加入权限
+        .lf50
+          .center 部门权限列表
+          table.table.table-bordered.table-hover.bg-white.left
+            tr(style='font-weight: bold')
+              td(style='width:50%') 权限名称
+              td(style='width:50%') 操作
+            tr(ng-repeat='item in table.plist')
+              td
+                span {{ item.ItemProcess.name }}
+              td(style='white-space: nowrap')
+                button.btn.btn-success(type='button',ng-click='table.delper(item.id)') 删除权限
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

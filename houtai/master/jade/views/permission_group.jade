@@ -1,0 +1,33 @@
+h3 权限组管理
+.panel.panel-default
+  .panel-heading
+  .panel-body.relat
+    .container-fluid(ng-controller="PermissionGroupCtrl as PG")
+      button.mb-sm.btn.btn-success(type='button',ng-click='PG.createbmshow()') 添加部门
+      table.table.table-bordered.table-hover.bg-white
+        tr(style='font-weight: bold')
+          td(style='width:25%') 部门名称
+          td(style='width:25%') 创建时间
+          td(style='width:25%') 操作
+          td(style='width:25%') 权限操作
+        tr(ng-repeat='user in PG.list')
+          td
+            span {{ user.name }}
+          td
+            span {{ user.created_at | date:'yyyy-MM-dd' }}
+          td
+            button.mb-sm.btn.btn-success(type='button',ng-click='PG.checkcy(user.id)') 添加成员
+            button.mb-sm.btn.btn-success(type='button',ng-click='PG.delbumen(user.id)') 删除部门
+          td(style='white-space: nowrap')
+
+            button.mb-sm.btn.btn-success(type='button',ng-click='PG.addPermission(user.id)') 添加权限
+
+
+
+
+
+
+
+
+
+

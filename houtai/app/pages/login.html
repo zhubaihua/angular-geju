@@ -1,0 +1,33 @@
+<div class="block-center mt-xl wd-xl" ng-controller="PermissionGroupCtrl as login">
+   <!-- START panel-->
+   <div class="panel panel-primary panel-flat">
+      <div class="panel-heading text-center">
+         <a href="#">
+            <img class="block-center img-rounded" src="app/img/logo.png" alt="Image" />
+         </a>
+      </div>
+      <div class="panel-body">
+         <form class="form-validate mb-lg" role="form" name="login.loginForm" novalidate="">
+            <div class="form-group has-feedback">
+               <input class="form-control" id="exampleInputEmail1" type="text" name="account_user" placeholder="用户名" autocomplete="off" ng-model="login.loginForm.account.user" required="required" ng-change="login.change()" />
+               <span class="text-danger" ng-show="login.loginForm.account_user.$dirty &amp;&amp; login.loginForm.account_user.$error.required">这是必填项</span>
+            </div>
+            <div class="form-group has-feedback">
+               <input class="form-control" id="exampleInputPassword1" type="password" name="account_password" placeholder="密码" ng-model="login.loginForm.account.password" required="required" ng-change="login.change()" />
+               <span class="text-danger" ng-show="login.loginForm.account_password.$dirty &amp;&amp; login.loginForm.account_password.$error.required">这是必填项</span>
+               <span class="center" ng-show="login.isshow">{{ login.authMsg }}</span>
+            </div>
+            <button class="btn btn-block btn-primary mt-lg" type="submit" ng-click="login.login1(login.loginForm.account)">确定</button>
+         </form>
+      </div>
+   </div>
+   <!-- END panel-->
+   <div class="p-lg text-center">
+      <span>&copy;</span>
+      <span ng-bind="app.year"></span>
+      <span>-</span>
+      <span ng-bind="app.name"></span>
+      <br/>
+      <span ng-bind="app.description"></span>
+   </div>
+</div>
