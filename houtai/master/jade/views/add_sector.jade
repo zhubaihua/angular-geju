@@ -1,10 +1,10 @@
 h3 新建部门
 .container-fluid(ng-controller="PermissionGroupCtrl as createForm")
   .return( ng-click="createForm.return()") << 返回
-  form.form-validate(role='form',  name='createform', novalidate='').mb-lg
+  form.form-validate(role='form',  name='createForm.createform', novalidate='').mb-lg
   .form-group.has-feedback
-    input.form-control(type='text', name="name" placeholder='部门名称', ng-model="createForm.createform.cet.name", required='required')
-
+    input.form-control(type='text', name="cet_name" placeholder='部门名称', ng-model="createForm.createform.cet.name", required='required' ng-change="createForm.change()")
+    span.center(ng-show="createForm.isshow") {{ createForm.authMsg }}
   button.btn.btn-block.btn-primary.mt-lg(type='submit',ng-click="createForm.crtbm(createForm.createform.cet)") 确定
 
 

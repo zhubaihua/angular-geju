@@ -49,9 +49,17 @@ function PermissionGroup(PGroupService,$state,$http,$rootScope,$stateParams) {
 
         }
         //创建部门
-        vm.crtbm = function (account) {
-            PGroupService.createbm(account).then(function (result) {
-                $state.go("app.permission_group");
+        vm.cet={}
+        vm.crtbm = function (cet) {
+            PGroupService.createbm(vm.cet).then(function (result) {
+                console.log(vm.cet);
+                if(result.data.code==200){
+                    $state.go("app.permission_group");
+                }else{
+                    vm.authMsg=result.data.msg;
+                    vm.isshow=true;
+                }
+
             })
         }
 

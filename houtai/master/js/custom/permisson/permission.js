@@ -11,10 +11,12 @@ function PermissionRyGroup(PermService,$stateParams,$state) {
     vm.cet = {};
     function activate() {
         var producerId = $stateParams.producerId;
+
         PermService.bmry(producerId).then(function (data) {
             vm.bmname=data.data.detail.name;
             vm.rybm=data.data.detail.RelationDepartmentStaffs;
         })
+
 
         //钉钉部门列表
         PermService.ckbm().then(function (data) {
@@ -38,12 +40,13 @@ function PermissionRyGroup(PermService,$stateParams,$state) {
         })
         vm.rycont={}
         //创建人员
-        vm.checkOnery = function (userid,name) {
+
+        vm.checkOnery2 = function (userid,name) {
             vm.rycont={
                 name:name,
                 user:userid,
                 group:producerId,
-                level:4
+                level:2
             }
             console.log(vm.rycont)
             PermService.createbm(vm.rycont).then(function (result) {
@@ -53,6 +56,8 @@ function PermissionRyGroup(PermService,$stateParams,$state) {
                 })
             })
         }
+
+
         //删除学员
         vm.delstu=function (id) {
             vm.del={
@@ -92,6 +97,29 @@ function PermissionRyGroup(PermService,$stateParams,$state) {
                     vm.plist=data.data.detail.RelationDepartmentAuthorities;
                 })
             })
+        }
+
+
+        // 更新人员权限
+        vm.updatper = function (id,lev) {
+            if(lev==1){
+                vm.upper = {
+                    id: id,
+                    level: 2
+                }
+            }else{
+                vm.upper = {
+                    id: id,
+                    level: 1
+                }
+            }
+            PermService.updry(vm.upper).then(function (result) {
+                PermService.bmry(producerId).then(function (data) {
+                    vm.bmname=data.data.detail.name;
+                    vm.rybm=data.data.detail.RelationDepartmentStaffs;
+                })
+            })
+
         }
 
     }

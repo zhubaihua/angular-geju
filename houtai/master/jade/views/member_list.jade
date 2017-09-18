@@ -5,26 +5,28 @@ h3 部门人员列表
   .panel-body
     .container-fluid
       h4.cen {{ table.bmname }}
-      .lf30
+      .lf60
         .lf50
           .center 部门名称
           h5.uli(ng-repeat='item in table.listbm', ng-click="table.checkOnebm(item.id)") {{ item.name }}
         .lf50
           .center 人员名称
-          h5.uli(ng-repeat='item in table.listry', ng-click="table.checkOnery(item.userid,item.name)") {{ item.name }}
-
-      table.table.table-bordered.table-hover.bg-white.rt70
+          h5.center.wid(ng-repeat='item in table.listry',ng-click="table.checkOnery2(item.userid,item.name)") {{ item.name }}
+      table.table.table-bordered.table-hover.bg-white.rt40
         tr(style='font-weight: bold')
-          td(style='width:50%') 成员姓名
-          td(style='width:50%') 操作
+          td(style='width:20%') 成员姓名
+          td(style='width:20%') 主管
+          td(style='width:20%') 操作
         tr(ng-repeat='item in table.rybm')
           td
             span {{ item.name }}
+          td
+            label
+              input(type='checkbox',ng-click="table.updatper(item.id,item.level)",ng-checked="{{ item.level == 1}}" value="item.level"  )
           td(style='white-space: nowrap')
+            em.fa.fa-trash.mr.fa-lg(ng-click='table.delstu(item.id)')
 
-            button.mb-sm.btn.btn-success(type='button',ng-click='table.delstu(item.id)') 删除成员
-
-
+      .clear
 
 
 

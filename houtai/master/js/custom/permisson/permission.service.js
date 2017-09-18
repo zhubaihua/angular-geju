@@ -91,5 +91,14 @@
             })
         };
 
+        //人员权限修改
+        this.updry = function (account) {
+            return $H({
+                url: '/manage/department/staff/update',
+                method: 'post',
+                data: account
+            })
+        };
+
     }
 })();
